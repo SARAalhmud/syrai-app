@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* إعداد الخطوط */
+:root {
+  --font-geist-sans: "Geist", sans-serif;
+  --font-geist-mono: "Geist Mono", monospace;
+}
+
+/* تخصيص الخلفية */
+body {
+  background: linear-gradient(135deg, #e6fff2, #ccf5e1);
+  font-family: var(--font-geist-sans);
+  color: #1a1a1a;
+  scroll-behavior: smooth;
+}
+
+/* فوتر متحرك */
+.footer-gradient {
+  background: linear-gradient(135deg, #a7f3d0, #6ee7b7);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-gradient::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+  animation: pulse 6s infinite linear;
+}
+
+@keyframes pulse {
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  100% {
+    transform: rotate(360deg) translate(0, 0);
+  }
+}
+/* حركات SVG بسيطة إن حبيت */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+ body {
+  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+}
+.stars {
+  background: url('/stars.png') repeat;
+  animation: moveStars 200s linear infinite;
+}
+
+@keyframes moveStars {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -10000px 5000px;
+  }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.footer-stars {
+  position: relative;
+  background: radial-gradient(white 1px, transparent 1px) repeat;
+  background-size: 20px 20px;
+  background-position: 0 0;
+}
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  box-shadow:
+    10px 20px 2px white,
+    30px 50px 2px white,
+    60px 80px 2px white,
+    90px 40px 2px white,
+    120px 70px 2px white,
+    150px 30px 2px white,
+    180px 60px 2px white;
+  animation: twinkle 2s infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.star {
+  animation-name: twinkle;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
